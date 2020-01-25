@@ -9,6 +9,7 @@ public class SwipeMouse : MonoBehaviour, IPointerClickHandler, IPointerDownHandl
     Vector2 moveDir = Vector2.zero;
     bool slideChance = true;
     float clickPosY = 0f;
+    float tempTime = 0f;
 
     void Update()
     {
@@ -25,9 +26,10 @@ public class SwipeMouse : MonoBehaviour, IPointerClickHandler, IPointerDownHandl
         //{
         //    moveDir.y *= 0.995f;
         //}
-
+        if(slideChance)
+            tempTime += Time.deltaTime;
         if (slideChance == false)
-            transform.position = Vector2.Lerp(transform.position, moveDir, Time.deltaTime);
+            transform.position = Vector2.Lerp(transform.position, moveDir, Time.deltaTime*speed);
     }
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -39,12 +41,13 @@ public class SwipeMouse : MonoBehaviour, IPointerClickHandler, IPointerDownHandl
         if (slideChance)
         {
             clickPosY = Input.mousePosition.y;
+            tempTime = 0f;
         }
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        float movePosY = (Input.mousePosition.y - clickPosY) * 10 / 1920;
+        float movePosY = (Input.mousePosition.y - clickPosY) * 10 / 1920/tempTime;
         print(movePosY);
         if (movePosY > 0)
         {
