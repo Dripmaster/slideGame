@@ -20,11 +20,12 @@ public class Swipe : MonoBehaviour
                 slideChance = false;
             }
         }
-        else if (Input.touchCount > 0 && (Input.GetTouch(0).phase == TouchPhase.Stationary || Input.GetTouch(0).phase == TouchPhase.Moved)) {
+        else if (Input.touchCount > 0 && (Input.GetTouch(0).phase == TouchPhase.Stationary || Input.GetTouch(0).phase == TouchPhase.Moved))
+        {
             moveDir.y *= 0.995f;
         }
-         if(moveDir.y>transform.position.y)
-         transform.position = Vector2.Lerp(transform.position, moveDir, Time.deltaTime);
+        if (moveDir.y > transform.position.y)
+            transform.position = Vector2.Lerp(transform.position, moveDir, Time.deltaTime);
     }
 
 }
