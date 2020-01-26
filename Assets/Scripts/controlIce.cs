@@ -18,7 +18,6 @@ public class controlIce : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        fromPosition = transform.position;
         if (controllable)
             gyroMove();
     }
@@ -33,6 +32,12 @@ public class controlIce : MonoBehaviour
     void calcSpeed() {
         float distance = Vector2.Distance(fromPosition, transform.position);
         speed = distance / Time.deltaTime;
+    }
+    public bool getControllable() {
+        return controllable;
+    }
+    public void setFrom(Vector2 f) {
+        fromPosition = f;
     }
 
     public void setControllable(bool v)

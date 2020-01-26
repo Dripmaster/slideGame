@@ -33,6 +33,7 @@ public class SwipeMouse : MonoBehaviour, IPointerClickHandler, IPointerDownHandl
         if (slideChance == false)
         {
             float speedBreak = (Input.GetMouseButton(0) ? breakPower:1f);
+            GetComponent<controlIce>().setFrom(transform.position);
             transform.position = Vector2.Lerp(transform.position, moveDir, Time.deltaTime * speed*speedBreak);
         }
     }
@@ -55,7 +56,6 @@ public class SwipeMouse : MonoBehaviour, IPointerClickHandler, IPointerDownHandl
         if (slideChance)
         {
             float movePosY = (Input.mousePosition.y - clickPosY) * 10 / 1920 / tempTime;
-            print(movePosY);
             if (movePosY > 0)
             {
                 moveDir = new Vector2(transform.position.x, transform.position.y + movePosY);
