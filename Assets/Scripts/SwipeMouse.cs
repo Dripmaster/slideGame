@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class SwipeMouse : MonoBehaviour, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler
 {
     public float speed = 1.0f;
+    public float breakPower = 0.5f;
     Vector2 moveDir = Vector2.zero;
     bool slideChance = true;
     float clickPosY = 0f;
@@ -26,10 +27,14 @@ public class SwipeMouse : MonoBehaviour, IPointerClickHandler, IPointerDownHandl
         //{
         //    moveDir.y *= 0.995f;
         //}
-        if(slideChance)
+        
+        if (slideChance)
             tempTime += Time.deltaTime;
         if (slideChance == false)
-            transform.position = Vector2.Lerp(transform.position, moveDir, Time.deltaTime*speed);
+        {
+            float speedBreak = (Input.GetMouseButton(0) ? breakPower:1f);
+            transform.position = Vector2.Lerp(transform.position, moveDir, Time.deltaTime * speed*speedBreak);
+        }
     }
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -47,12 +52,16 @@ public class SwipeMouse : MonoBehaviour, IPointerClickHandler, IPointerDownHandl
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        float movePosY = (Input.mousePosition.y - clickPosY) * 10 / 1920/tempTime;
-        print(movePosY);
-        if (movePosY > 0)
+        if (slideChance)
         {
-            moveDir = new Vector2(transform.position.x, transform.position.y + movePosY);
-            slideChance = false;
+            float movePosY = (Input.mousePosition.y - clickPosY) * 10 / 1920 / tempTime;
+            print(movePosY);
+            if (movePosY > 0)
+            {
+                moveDir = new Vector2(transform.position.x, transform.position.y + movePosY);
+                GetComponent<controlIce>().setControllable(true);
+                slideChance = false;
+            }
         }
     }
 }
