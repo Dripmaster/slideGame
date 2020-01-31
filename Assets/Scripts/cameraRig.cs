@@ -17,5 +17,8 @@ public class cameraRig : MonoBehaviour
     void LateUpdate()
     {
         transform.position = Vector2.Lerp(transform.position,iceTransform.position,Time.deltaTime*cameraSpeed);
+        if (Vector2.Distance(transform.position, iceTransform.position) < 5f) {
+            cameraSpeed = 10;
+        }
     }
 }
