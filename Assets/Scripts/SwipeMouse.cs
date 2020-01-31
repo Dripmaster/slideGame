@@ -55,7 +55,7 @@ public class SwipeMouse : MonoBehaviour, IPointerClickHandler, IPointerDownHandl
     {
         if (slideChance)
         {
-            float movePosY = (Input.mousePosition.y - clickPosY) * 10 / 1920 / tempTime;
+            float movePosY = (Input.mousePosition.y - clickPosY) * 16 / Screen.height / tempTime;
             if (movePosY > 0)
             {
                 moveDir = new Vector2(transform.position.x, transform.position.y + movePosY);
