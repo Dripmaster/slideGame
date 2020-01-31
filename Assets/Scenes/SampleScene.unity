@@ -200,6 +200,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!224 &443271946 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1138591137468004866, guid: 248593b1967bb3c4cac16e0be5d3c6a8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1138591137414435592}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,7 +563,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iceTransform: {fileID: 604718463}
-  cameraSpeed: 10
+  goalTransform: {fileID: 443271946}
+  cameraSpeed: 1
 --- !u!1 &2015205048
 GameObject:
   m_ObjectHideFlags: 0

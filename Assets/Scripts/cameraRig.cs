@@ -5,11 +5,12 @@ using UnityEngine;
 public class cameraRig : MonoBehaviour
 {
     public Transform iceTransform;
+    public Transform goalTransform;
     public float cameraSpeed;
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
-        transform.position = iceTransform.position;
+        transform.position = goalTransform.position;
     }
 
     // Update is called once per frame

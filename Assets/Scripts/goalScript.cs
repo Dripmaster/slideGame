@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class goalScript : MonoBehaviour
@@ -21,7 +22,7 @@ public class goalScript : MonoBehaviour
     {
         if (ice.getSpeed() < 1f && Vector2.Distance(transform.position, ice.transform.position) < 1f)
         {//low speed, goal
-
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
         else if (ice.getSpeed() < 0.5f&&ice.getControllable())
         {//low speed, no goal
