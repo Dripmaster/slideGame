@@ -564,7 +564,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iceTransform: {fileID: 604718463}
   goalTransform: {fileID: 443271946}
-  cameraSpeed: 1
+  cameraSpeed: 10
 --- !u!1 &2015205048
 GameObject:
   m_ObjectHideFlags: 0
