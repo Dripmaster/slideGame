@@ -6,13 +6,14 @@ using UnityEngine;
 public class goalScript : MonoBehaviour
 {
     controlIce ice;
+    public float maxY = 100;
     
     // Start is called before the first frame update
     void Awake() { 
 
         Vector3 posVec = GetComponent<RectTransform>().position;
         posVec.x = Random.Range(-4, 4);
-        posVec.y = Random.Range(10, 100);
+        posVec.y = Random.Range(10, maxY);
         GetComponent<RectTransform>().position = posVec;
         ice = GameObject.Find("ICE").GetComponent<controlIce>();
     }
