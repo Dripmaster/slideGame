@@ -8,8 +8,8 @@ public class SwipeMouse : MonoBehaviour, IPointerClickHandler, IPointerDownHandl
     public float speed = 1.0f;
     public float maxbreakPower = 0.5f;
     float breakPower=1f;
-    public float speedUpDegree=2f;
-    public float speedDownDegree = 2f;
+    public float speedChangeDegree=2f;//속도가 변화하는 정도
+    public float speedDownDegree = 2f;//속도가 점점 하락하는 정도
     float moveDir = 0;
     float moveDirBreak;
     bool slideChance = true;
@@ -35,7 +35,7 @@ public class SwipeMouse : MonoBehaviour, IPointerClickHandler, IPointerDownHandl
             }
             
             GetComponent<controlIce>().setFrom(transform.position);
-            moveDirBreak = Mathf.Lerp(moveDirBreak,moveDir * breakPower,Time.deltaTime* speedUpDegree);
+            moveDirBreak = Mathf.Lerp(moveDirBreak,moveDir * breakPower,Time.deltaTime* speedChangeDegree);
             transform.Translate(Vector2.up * Time.deltaTime * speed  * moveDirBreak);
             moveDir = Mathf.Lerp(moveDir, 0, Time.deltaTime/ speedDownDegree);
         }
