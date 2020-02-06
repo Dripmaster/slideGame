@@ -18,8 +18,16 @@ public class cameraRig : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        if(ready)
-        transform.position = Vector2.Lerp(transform.position,iceTransform.position,Time.deltaTime*cameraSpeed);
+        if (ready)
+        {
+            transform.position = Vector2.Lerp(transform.position, iceTransform.position, Time.deltaTime * cameraSpeed);
+            if (transform.position.y >= goalTransform.position.y - 7.5f)
+            {
+                transform.position = new Vector2(0, goalTransform.position.y - 7.5f);
+            }
+                
+        }
+        
     }
 
     IEnumerator timer() {

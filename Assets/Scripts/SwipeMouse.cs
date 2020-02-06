@@ -8,8 +8,9 @@ public class SwipeMouse : MonoBehaviour, IPointerClickHandler, IPointerDownHandl
     public float speed = 1.0f;
     public float maxbreakPower = 0.5f;
     float breakPower=1f;
-    public float speedChangeDegree=2f;//속도가 변화하는 정도
-    public float speedDownDegree = 2f;//속도가 점점 하락하는 정도
+    public float speedChangeDegree=2f;//속도가 변화하는 정도(커질수록 변화 빠름)
+    public float speedDownDegree = 2f;//속도가 점점 하락하는 정도(커질수록 빨리 느려짐)
+    public float speedStartPoint = 5f;//속도 첫 시작점(최대속도/n)
     float moveDir = 0;
     float moveDirBreak;
     bool slideChance = true;
@@ -59,7 +60,7 @@ public class SwipeMouse : MonoBehaviour, IPointerClickHandler, IPointerDownHandl
         if (slideChance)
         {
             moveDir = (Input.mousePosition.y - clickPosY) * 16 / Screen.height / tempTime;
-            moveDirBreak = moveDir / 2f;
+            moveDirBreak = moveDir / speedStartPoint;
             if (moveDir > 0)
             {
                 GetComponent<controlIce>().setControllable(true);
