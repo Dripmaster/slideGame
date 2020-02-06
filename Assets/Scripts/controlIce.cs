@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class controlIce : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class controlIce : MonoBehaviour
     Vector2 fromPosition = Vector2.zero;
     float speed;
     public float gyroSpeed=10f;
+    public Text t;//임시용
     // Start is called before the first frame update
     void Awake()
     {
@@ -23,6 +25,8 @@ public class controlIce : MonoBehaviour
     }
     void LateUpdate() {
         calcSpeed();
+        if (speed.ToString() != t.text)//임시용~
+            t.text = speed.ToString();
     }
     
     void gyroMove() {
