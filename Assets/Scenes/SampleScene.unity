@@ -339,7 +339,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  breakPower: 0.5
+  maxbreakPower: 0.5
+  breakPower: 1
 --- !u!114 &604718461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -463,7 +464,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948836238}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 57.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 519420030}
@@ -593,12 +594,12 @@ PrefabInstance:
     - target: {fileID: 1138591137468004866, guid: 248593b1967bb3c4cac16e0be5d3c6a8,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 4.08
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1138591137468004866, guid: 248593b1967bb3c4cac16e0be5d3c6a8,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 30
+      value: 64.9
       objectReference: {fileID: 0}
     - target: {fileID: 1138591137468004866, guid: 248593b1967bb3c4cac16e0be5d3c6a8,
         type: 3}
@@ -644,6 +645,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: goal
+      objectReference: {fileID: 0}
+    - target: {fileID: 8901154369630065917, guid: 248593b1967bb3c4cac16e0be5d3c6a8,
+        type: 3}
+      propertyPath: staticY
+      value: 26.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 248593b1967bb3c4cac16e0be5d3c6a8, type: 3}

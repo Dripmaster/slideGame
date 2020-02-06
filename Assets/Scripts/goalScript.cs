@@ -7,13 +7,23 @@ public class goalScript : MonoBehaviour
 {
     controlIce ice;
     public float maxY = 100;
-    
+    public float minY = 10;
+    public float staticX = 0;//0일시 랜덤
+    public float staticY = 0;
     // Start is called before the first frame update
     void Awake() { 
 
         Vector3 posVec = GetComponent<RectTransform>().position;
-        posVec.x = Random.Range(-4, 4);
-        posVec.y = Random.Range(10, maxY);
+        if (staticX == 0 && staticY == 0)
+        {
+            posVec.x = Random.Range(-4, 4);
+            posVec.y = Random.Range(minY, maxY);
+        }
+        else
+        {
+            posVec.x = staticX;
+            posVec.y = staticY;
+        }
         GetComponent<RectTransform>().position = posVec;
         ice = GameObject.Find("ICE").GetComponent<controlIce>();
     }

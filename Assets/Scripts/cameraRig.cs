@@ -11,7 +11,7 @@ public class cameraRig : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = new Vector2(0,goalTransform.position.y-10);
+        transform.position = new Vector2(0,goalTransform.position.y-7.5f);
         StartCoroutine("timer");
     }
 
