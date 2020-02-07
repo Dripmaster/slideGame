@@ -20,12 +20,14 @@ public class cameraRig : MonoBehaviour
     {
         if (ready)
         {
-            transform.position = Vector2.Lerp(transform.position, iceTransform.position, Time.deltaTime * cameraSpeed);
-            if (transform.position.y >= goalTransform.position.y - 7.5f)
+            Vector2 moveDir = new Vector2();
+            moveDir = Vector2.Lerp(transform.position, iceTransform.position, Time.deltaTime * cameraSpeed);
+            if (moveDir.y >= goalTransform.position.y - 7.5f)
             {
-                transform.position = new Vector2(0, goalTransform.position.y - 7.5f);
+                moveDir.y = goalTransform.position.y - 7.5f;
             }
-                
+            moveDir.x = 0;
+            transform.position = moveDir;
         }
         
     }
