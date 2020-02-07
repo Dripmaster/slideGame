@@ -8,6 +8,13 @@ public class cameraRig : MonoBehaviour
     public Transform goalTransform;
     public float cameraSpeed;
     bool ready = false;
+
+
+    void Awake() {
+        //Screen.SetResolution(Screen.width, (Screen.width * 16) / 9, true);
+        ResolutionFix();
+    }
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +38,31 @@ public class cameraRig : MonoBehaviour
         }
         
     }
+    void ResolutionFix()
+    {
+        // 가로 세로 비율
+        float targetWidthAspect = 9.0f;
+        float targetHeightAspect = 16.0f;
+       
+        Camera.main.aspect = targetWidthAspect / targetHeightAspect;
+
+        float targetWidthAspectPort = targetWidthAspect / targetHeightAspect;
+        float targetHeightAspectPort = targetHeightAspect / targetWidthAspect;
+
+        float currentWidthAspectPort = (float)Screen.width / (float)Screen.height;
+        float currentHeightAspectPort = (float)Screen.height / (float)Screen.width;
+
+        float viewPortW = targetWidthAspectPort / currentWidthAspectPort;
+        float viewPortH = targetHeightAspectPort / currentHeightAspectPort;
+            
+
+        Camera.main.rect = new Rect(
+            (1-viewPortW)/2,
+            (1 - viewPortH) / 2,
+            viewPortW,
+            viewPortH);
+    }
+
 
     IEnumerator timer() {
 

@@ -19,8 +19,6 @@ public class SwipeMouse : MonoBehaviour, IPointerClickHandler, IPointerDownHandl
 
     void Update()
     {
-        
-        
         if (slideChance)
             tempTime += Time.deltaTime;
         if (slideChance == false)
