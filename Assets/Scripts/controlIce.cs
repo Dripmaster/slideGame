@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+
 public class controlIce : MonoBehaviour
 {
+    
 
     bool controllable = false;
     Vector2 fromPosition = Vector2.zero;
@@ -25,8 +28,7 @@ public class controlIce : MonoBehaviour
     }
     void LateUpdate() {
         calcSpeed();
-        if (speed.ToString() != t.text)//임시용~
-            t.text = speed.ToString();
+        
     }
     
     void gyroMove() {
@@ -35,7 +37,10 @@ public class controlIce : MonoBehaviour
     }
     void calcSpeed() {
         float distance = Vector2.Distance(fromPosition, transform.position);
-        speed = distance / Time.deltaTime;
+        if (speed != Mathf.Round(distance / Time.deltaTime)) {
+            speed = Mathf.Round(distance / Time.deltaTime);
+            t.text = speed.ToString();
+        }
     }
     public bool getControllable() {
         return controllable;

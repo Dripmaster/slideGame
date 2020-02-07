@@ -54,8 +54,11 @@ public class cameraRig : MonoBehaviour
 
         float viewPortW = targetWidthAspectPort / currentWidthAspectPort;
         float viewPortH = targetHeightAspectPort / currentHeightAspectPort;
-            
 
+        if (viewPortH > 1)
+            viewPortH = 1;
+        if (viewPortW > 1)
+            viewPortW = 1;
         Camera.main.rect = new Rect(
             (1-viewPortW)/2,
             (1 - viewPortH) / 2,
