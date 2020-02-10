@@ -22,12 +22,12 @@ public class backGround : MonoBehaviour
     }
 
     void makeBackGround() {
-        if (transform.position.y <= 26.6)
+        if (transform.position.y <= 10)
             return;
-        int index = (int)((transform.position.y-26.6f) / 38.3f);
+        int index = (int)((transform.position.y-10f) / 38.4f);
 
         for (int i = 0; i <= index; i++) {
-            Instantiate(backGroundPrefab, new Vector2(0, 7.5f+38.3f * (i+1)), Quaternion.identity);
+            Instantiate(backGroundPrefab, new Vector2(0, 7.5f+38.4f * (i+1)), Quaternion.identity);
         }
     }
 }
