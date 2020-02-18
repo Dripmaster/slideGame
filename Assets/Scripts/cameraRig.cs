@@ -31,7 +31,7 @@ public class cameraRig : MonoBehaviour
             moveDir = Vector2.Lerp(transform.position, iceTransform.position, Time.deltaTime * cameraSpeed);
             if (moveDir.y >= goalTransform.position.y - 7.5f)
             {
-                //moveDir.y = goalTransform.position.y - 7.5f;
+                moveDir.y = goalTransform.position.y - 7.5f;
             }
             moveDir.x = 0;
             transform.position = moveDir;
